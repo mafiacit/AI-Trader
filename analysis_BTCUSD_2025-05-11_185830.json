@@ -1,0 +1,156 @@
+{
+  "currency_pair": "BTCUSD",
+  "timeframe": "1d",
+  "timestamp": "2025-05-11 18:58:30",
+  "current_price": 2.9165682435325597e+156,
+  "trend": "bearish",
+  "strength": 80.0,
+  "support": -8.827299215887342e+158,
+  "resistance": 7.751203173961619e+158,
+  "recommendation": "sell",
+  "confidence": 90.0,
+  "indicators": {
+    "rsi": 100.0,
+    "macd": 2.328455778295362e+155,
+    "macd_signal": 4.6607460131375036e+154,
+    "sma_20": 1.4597852758354145e+155,
+    "upper_band": Infinity,
+    "lower_band": -Infinity
+  },
+  "historical_data": [
+    {
+      "date": "2025-02-28 18:58:29",
+      "close": -4.966592538415605e+80
+    },
+    {
+      "date": "2025-03-01 18:58:29",
+      "close": -1.3810725513019703e+82
+    },
+    {
+      "date": "2025-03-02 18:58:29",
+      "close": 1.187154064118591e+85
+    },
+    {
+      "date": "2025-03-03 18:58:29",
+      "close": -1.1100565046448039e+88
+    },
+    {
+      "date": "2025-03-04 18:58:29",
+      "close": 2.9081452068368e+89
+    },
+    {
+      "date": "2025-03-05 18:58:29",
+      "close": -2.1887794341812863e+92
+    },
+    {
+      "date": "2025-03-06 18:58:29",
+      "close": 8.704709661937869e+94
+    },
+    {
+      "date": "2025-03-07 18:58:29",
+      "close": -6.169846005715207e+97
+    },
+    {
+      "date": "2025-03-08 18:58:29",
+      "close": -2.585362041380157e+100
+    },
+    {
+      "date": "2025-03-09 18:58:29",
+      "close": 2.5690506639757804e+103
+    },
+    {
+      "date": "2025-03-10 18:58:29",
+      "close": 7.429481958095483e+105
+    },
+    {
+      "date": "2025-03-11 18:58:29",
+      "close": -5.803027397781886e+108
+    },
+    {
+      "date": "2025-03-12 18:58:29",
+      "close": 6.365153614737042e+111
+    },
+    {
+      "date": "2025-03-13 18:58:29",
+      "close": 5.908962129172629e+114
+    },
+    {
+      "date": "2025-03-14 18:58:29",
+      "close": 5.09157996121031e+117
+    },
+    {
+      "date": "2025-03-15 18:58:29",
+      "close": 2.9087255967022445e+120
+    },
+    {
+      "date": "2025-03-16 18:58:29",
+      "close": -1.0913770271664264e+122
+    },
+    {
+      "date": "2025-03-17 18:58:29",
+      "close": 5.526523745059967e+124
+    },
+    {
+      "date": "2025-03-18 18:58:29",
+      "close": 1.38308949969561e+127
+    },
+    {
+      "date": "2025-03-19 18:58:29",
+      "close": -1.3009524007589512e+130
+    },
+    {
+      "date": "2025-03-20 18:58:29",
+      "close": -2.33637472974047e+132
+    },
+    {
+      "date": "2025-03-21 18:58:29",
+      "close": 1.410566135769819e+135
+    },
+    {
+      "date": "2025-03-22 18:58:29",
+      "close": 2.0751277855842866e+138
+    },
+    {
+      "date": "2025-03-23 18:58:29",
+      "close": -2.8858419438797925e+140
+    },
+    {
+      "date": "2025-03-24 18:58:29",
+      "close": -1.3387495254649296e+142
+    },
+    {
+      "date": "2025-03-25 18:58:29",
+      "close": 9.799563066746213e+144
+    },
+    {
+      "date": "2025-03-26 18:58:29",
+      "close": -4.954045729065396e+147
+    },
+    {
+      "date": "2025-03-27 18:58:29",
+      "close": 3.36361831700548e+150
+    },
+    {
+      "date": "2025-03-28 18:58:29",
+      "close": 2.998949464211488e+153
+    },
+    {
+      "date": "2025-03-29 18:58:29",
+      "close": 2.9165682435325597e+156
+    }
+  ],
+  "ai_analysis": {
+    "trend": "bearish",
+    "strength": 80,
+    "recommendation": "sell",
+    "confidence": 90,
+    "reasoning": "The RSI is extremely overbought, indicating a potential reversal. The MACD is also extremely bullish, but the signal line is lagging, suggesting a potential divergence. The Bollinger Bands are extremely wide, indicating high volatility. The current price is near the resistance level, and the support level is far away, indicating a potential breakdown.",
+    "key_factors": [
+      "RSI",
+      "MACD"
+    ],
+    "risk_assessment": "The high volatility and overbought conditions increase the risk of a sharp price drop. However, the support level is far away, providing some cushion.",
+    "timeframe": "short_term",
+    "volatility_risk": "high"
+  }
+}

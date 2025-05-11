@@ -1,0 +1,156 @@
+{
+  "currency_pair": "XAUUSD",
+  "timeframe": "1d",
+  "timestamp": "2025-05-11 18:58:29",
+  "current_price": -1.3279416188778369e+70,
+  "trend": "bullish",
+  "strength": 60.0,
+  "support": -1.3252857356400812e+70,
+  "resistance": 7.5661022435536645e+68,
+  "recommendation": "buy",
+  "confidence": 80.0,
+  "indicators": {
+    "rsi": 3.11,
+    "macd": -1.1098870189818597e+69,
+    "macd_signal": -2.2731009372818837e+68,
+    "sma_20": -6.989271318337763e+68,
+    "upper_band": 5.2506710956241655e+69,
+    "lower_band": -6.648525359291718e+69
+  },
+  "historical_data": [
+    {
+      "date": "2025-04-11 18:58:29",
+      "close": 4.161273945281896e+48
+    },
+    {
+      "date": "2025-04-12 18:58:29",
+      "close": 7.558039343150471e+49
+    },
+    {
+      "date": "2025-04-13 18:58:29",
+      "close": 6.2472359980355995e+50
+    },
+    {
+      "date": "2025-04-14 18:58:29",
+      "close": -9.367119784707674e+51
+    },
+    {
+      "date": "2025-04-15 18:58:29",
+      "close": 5.366522585558663e+52
+    },
+    {
+      "date": "2025-04-16 18:58:29",
+      "close": -2.1357304082752793e+53
+    },
+    {
+      "date": "2025-04-17 18:58:29",
+      "close": -2.8674097352413122e+54
+    },
+    {
+      "date": "2025-04-18 18:58:29",
+      "close": -5.009497162339383e+55
+    },
+    {
+      "date": "2025-04-19 18:58:29",
+      "close": -1.3218268656859922e+56
+    },
+    {
+      "date": "2025-04-20 18:58:29",
+      "close": -7.901344753176305e+56
+    },
+    {
+      "date": "2025-04-21 18:58:29",
+      "close": -3.351838298473338e+57
+    },
+    {
+      "date": "2025-04-22 18:58:29",
+      "close": 1.7993639755689586e+58
+    },
+    {
+      "date": "2025-04-23 18:58:29",
+      "close": 1.6865812006257697e+58
+    },
+    {
+      "date": "2025-04-24 18:58:29",
+      "close": -4.789437134694658e+58
+    },
+    {
+      "date": "2025-04-25 18:58:29",
+      "close": -2.0219684564799016e+59
+    },
+    {
+      "date": "2025-04-26 18:58:29",
+      "close": 3.096865931409432e+59
+    },
+    {
+      "date": "2025-04-27 18:58:29",
+      "close": -3.4071193957486194e+60
+    },
+    {
+      "date": "2025-04-28 18:58:29",
+      "close": -3.7060442258047393e+61
+    },
+    {
+      "date": "2025-04-29 18:58:29",
+      "close": -8.322575254005692e+59
+    },
+    {
+      "date": "2025-04-30 18:58:29",
+      "close": 1.441540787441177e+60
+    },
+    {
+      "date": "2025-05-01 18:58:29",
+      "close": 2.1490233007075025e+61
+    },
+    {
+      "date": "2025-05-02 18:58:29",
+      "close": -2.5135009146383635e+62
+    },
+    {
+      "date": "2025-05-03 18:58:29",
+      "close": -1.8084758618997028e+63
+    },
+    {
+      "date": "2025-05-04 18:58:29",
+      "close": -1.6620363707389492e+64
+    },
+    {
+      "date": "2025-05-05 18:58:29",
+      "close": -3.089914335160127e+65
+    },
+    {
+      "date": "2025-05-06 18:58:29",
+      "close": -5.665168492516844e+66
+    },
+    {
+      "date": "2025-05-07 18:58:29",
+      "close": 4.544156827807817e+67
+    },
+    {
+      "date": "2025-05-08 18:58:29",
+      "close": 4.342702016776596e+68
+    },
+    {
+      "date": "2025-05-09 18:58:29",
+      "close": -1.172845359460262e+69
+    },
+    {
+      "date": "2025-05-10 18:58:29",
+      "close": -1.3279416188778369e+70
+    }
+  ],
+  "ai_analysis": {
+    "trend": "bullish",
+    "strength": 60,
+    "recommendation": "buy",
+    "confidence": 80,
+    "reasoning": "The RSI is oversold, indicating a potential bounce. The MACD is also showing a bullish divergence. Additionally, the current price is close to the support level, which could provide a floor for the price. Inflation expectations are rising, which typically benefits gold. US dollar strength is also a positive factor.",
+    "key_factors": [
+      "inflation expectations",
+      "US dollar strength"
+    ],
+    "risk_assessment": "The risk is relatively low, as the price is close to a support level and the technical indicators are showing a bullish bias.",
+    "timeframe": "short_term",
+    "correlation_to_market_uncertainty": "positive"
+  }
+}

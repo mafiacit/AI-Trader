@@ -1,0 +1,155 @@
+{
+  "currency_pair": "EURUSD",
+  "timeframe": "1d",
+  "timestamp": "2025-05-11 18:58:26",
+  "current_price": 1.09309,
+  "trend": "bearish",
+  "strength": 60.0,
+  "support": 1.09009,
+  "resistance": 1.11527,
+  "recommendation": "sell",
+  "confidence": 80.0,
+  "indicators": {
+    "rsi": 19.31,
+    "macd": -0.00326,
+    "macd_signal": -0.00254,
+    "sma_20": 1.10144,
+    "upper_band": 1.11288,
+    "lower_band": 1.09
+  },
+  "historical_data": [
+    {
+      "date": "2025-04-11 18:58:24",
+      "close": 1.10482
+    },
+    {
+      "date": "2025-04-12 18:58:24",
+      "close": 1.10574
+    },
+    {
+      "date": "2025-04-13 18:58:24",
+      "close": 1.10328
+    },
+    {
+      "date": "2025-04-14 18:58:24",
+      "close": 1.103
+    },
+    {
+      "date": "2025-04-15 18:58:24",
+      "close": 1.10718
+    },
+    {
+      "date": "2025-04-16 18:58:24",
+      "close": 1.10709
+    },
+    {
+      "date": "2025-04-17 18:58:24",
+      "close": 1.10863
+    },
+    {
+      "date": "2025-04-18 18:58:24",
+      "close": 1.10824
+    },
+    {
+      "date": "2025-04-19 18:58:24",
+      "close": 1.11206
+    },
+    {
+      "date": "2025-04-20 18:58:24",
+      "close": 1.11309
+    },
+    {
+      "date": "2025-04-21 18:58:24",
+      "close": 1.11245
+    },
+    {
+      "date": "2025-04-22 18:58:24",
+      "close": 1.11039
+    },
+    {
+      "date": "2025-04-23 18:58:24",
+      "close": 1.10787
+    },
+    {
+      "date": "2025-04-24 18:58:24",
+      "close": 1.10747
+    },
+    {
+      "date": "2025-04-25 18:58:24",
+      "close": 1.10651
+    },
+    {
+      "date": "2025-04-26 18:58:24",
+      "close": 1.10813
+    },
+    {
+      "date": "2025-04-27 18:58:24",
+      "close": 1.10299
+    },
+    {
+      "date": "2025-04-28 18:58:24",
+      "close": 1.10012
+    },
+    {
+      "date": "2025-04-29 18:58:24",
+      "close": 1.10038
+    },
+    {
+      "date": "2025-04-30 18:58:24",
+      "close": 1.10046
+    },
+    {
+      "date": "2025-05-01 18:58:24",
+      "close": 1.10105
+    },
+    {
+      "date": "2025-05-02 18:58:24",
+      "close": 1.1028
+    },
+    {
+      "date": "2025-05-03 18:58:24",
+      "close": 1.10002
+    },
+    {
+      "date": "2025-05-04 18:58:24",
+      "close": 1.09487
+    },
+    {
+      "date": "2025-05-05 18:58:24",
+      "close": 1.09488
+    },
+    {
+      "date": "2025-05-06 18:58:24",
+      "close": 1.09676
+    },
+    {
+      "date": "2025-05-07 18:58:24",
+      "close": 1.09692
+    },
+    {
+      "date": "2025-05-08 18:58:24",
+      "close": 1.09645
+    },
+    {
+      "date": "2025-05-09 18:58:24",
+      "close": 1.09523
+    },
+    {
+      "date": "2025-05-10 18:58:24",
+      "close": 1.09309
+    }
+  ],
+  "ai_analysis": {
+    "trend": "bearish",
+    "strength": 60,
+    "recommendation": "sell",
+    "confidence": 80,
+    "reasoning": "The RSI is oversold, indicating a potential bounce, but the MACD is bearish, suggesting a stronger downtrend. The price is trading below the SMA 20 and Bollinger Bands, indicating a bearish momentum.",
+    "key_factors": [
+      "interest rate differential",
+      "economic data releases"
+    ],
+    "risk_assessment": "The risk is moderate, as the market is oversold, but the bearish momentum is strong.",
+    "timeframe": "short_term"
+  }
+}

@@ -1,0 +1,155 @@
+{
+  "currency_pair": "AUDUSD",
+  "timeframe": "1d",
+  "timestamp": "2025-05-11 18:58:28",
+  "current_price": 0.73372,
+  "trend": "bullish",
+  "strength": 60.0,
+  "support": 0.72226,
+  "resistance": 0.73912,
+  "recommendation": "buy",
+  "confidence": 80.0,
+  "indicators": {
+    "rsi": 58.37,
+    "macd": 0.00198,
+    "macd_signal": 0.00219,
+    "sma_20": 0.73166,
+    "upper_band": 0.73869,
+    "lower_band": 0.72463
+  },
+  "historical_data": [
+    {
+      "date": "2025-04-11 18:58:27",
+      "close": 0.71876
+    },
+    {
+      "date": "2025-04-12 18:58:27",
+      "close": 0.71942
+    },
+    {
+      "date": "2025-04-13 18:58:27",
+      "close": 0.72055
+    },
+    {
+      "date": "2025-04-14 18:58:27",
+      "close": 0.72111
+    },
+    {
+      "date": "2025-04-15 18:58:27",
+      "close": 0.72277
+    },
+    {
+      "date": "2025-04-16 18:58:27",
+      "close": 0.72608
+    },
+    {
+      "date": "2025-04-17 18:58:27",
+      "close": 0.72311
+    },
+    {
+      "date": "2025-04-18 18:58:27",
+      "close": 0.72404
+    },
+    {
+      "date": "2025-04-19 18:58:27",
+      "close": 0.72613
+    },
+    {
+      "date": "2025-04-20 18:58:27",
+      "close": 0.7284
+    },
+    {
+      "date": "2025-04-21 18:58:27",
+      "close": 0.72541
+    },
+    {
+      "date": "2025-04-22 18:58:27",
+      "close": 0.72536
+    },
+    {
+      "date": "2025-04-23 18:58:27",
+      "close": 0.72742
+    },
+    {
+      "date": "2025-04-24 18:58:27",
+      "close": 0.72848
+    },
+    {
+      "date": "2025-04-25 18:58:27",
+      "close": 0.72693
+    },
+    {
+      "date": "2025-04-26 18:58:27",
+      "close": 0.7293
+    },
+    {
+      "date": "2025-04-27 18:58:27",
+      "close": 0.73285
+    },
+    {
+      "date": "2025-04-28 18:58:27",
+      "close": 0.73275
+    },
+    {
+      "date": "2025-04-29 18:58:27",
+      "close": 0.73351
+    },
+    {
+      "date": "2025-04-30 18:58:27",
+      "close": 0.73749
+    },
+    {
+      "date": "2025-05-01 18:58:27",
+      "close": 0.7346
+    },
+    {
+      "date": "2025-05-02 18:58:27",
+      "close": 0.73334
+    },
+    {
+      "date": "2025-05-03 18:58:27",
+      "close": 0.7361
+    },
+    {
+      "date": "2025-05-04 18:58:27",
+      "close": 0.73444
+    },
+    {
+      "date": "2025-05-05 18:58:27",
+      "close": 0.73373
+    },
+    {
+      "date": "2025-05-06 18:58:27",
+      "close": 0.73282
+    },
+    {
+      "date": "2025-05-07 18:58:27",
+      "close": 0.73057
+    },
+    {
+      "date": "2025-05-08 18:58:27",
+      "close": 0.73002
+    },
+    {
+      "date": "2025-05-09 18:58:27",
+      "close": 0.73438
+    },
+    {
+      "date": "2025-05-10 18:58:27",
+      "close": 0.73372
+    }
+  ],
+  "ai_analysis": {
+    "trend": "bullish",
+    "strength": 60,
+    "recommendation": "buy",
+    "confidence": 80,
+    "reasoning": "The RSI is above 50, indicating a bullish momentum. The MACD is also bullish, with the MACD line above the signal line. The price is trading above the SMA 20 and within the Bollinger Bands, suggesting a strong uptrend. The resistance level is slightly above the current price, providing a clear target for the trade.",
+    "key_factors": [
+      "interest rate differential between AUD and USD",
+      "Australian economic data releases"
+    ],
+    "risk_assessment": "The risk is moderate, as the price is trading near the resistance level. A break above the resistance could lead to further gains, but a failure to do so could result in a pullback.",
+    "timeframe": "short_term"
+  }
+}

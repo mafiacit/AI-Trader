@@ -1,0 +1,155 @@
+{
+  "currency_pair": "USDCAD",
+  "timeframe": "1d",
+  "timestamp": "2025-05-11 18:58:28",
+  "current_price": 1.33787,
+  "trend": "bullish",
+  "strength": 95.0,
+  "support": 1.32294,
+  "resistance": 1.34358,
+  "recommendation": "buy",
+  "confidence": 80.0,
+  "indicators": {
+    "rsi": 55.29,
+    "macd": -0.00211,
+    "macd_signal": -0.00289,
+    "sma_20": 1.33396,
+    "upper_band": 1.34121,
+    "lower_band": 1.32671
+  },
+  "historical_data": [
+    {
+      "date": "2025-04-11 18:58:28",
+      "close": 1.35272
+    },
+    {
+      "date": "2025-04-12 18:58:28",
+      "close": 1.35563
+    },
+    {
+      "date": "2025-04-13 18:58:28",
+      "close": 1.353
+    },
+    {
+      "date": "2025-04-14 18:58:28",
+      "close": 1.35439
+    },
+    {
+      "date": "2025-04-15 18:58:28",
+      "close": 1.35765
+    },
+    {
+      "date": "2025-04-16 18:58:28",
+      "close": 1.35617
+    },
+    {
+      "date": "2025-04-17 18:58:28",
+      "close": 1.35749
+    },
+    {
+      "date": "2025-04-18 18:58:28",
+      "close": 1.3531
+    },
+    {
+      "date": "2025-04-19 18:58:28",
+      "close": 1.35321
+    },
+    {
+      "date": "2025-04-20 18:58:28",
+      "close": 1.34566
+    },
+    {
+      "date": "2025-04-21 18:58:28",
+      "close": 1.34009
+    },
+    {
+      "date": "2025-04-22 18:58:28",
+      "close": 1.33689
+    },
+    {
+      "date": "2025-04-23 18:58:28",
+      "close": 1.33891
+    },
+    {
+      "date": "2025-04-24 18:58:28",
+      "close": 1.33727
+    },
+    {
+      "date": "2025-04-25 18:58:28",
+      "close": 1.33702
+    },
+    {
+      "date": "2025-04-26 18:58:28",
+      "close": 1.33481
+    },
+    {
+      "date": "2025-04-27 18:58:28",
+      "close": 1.33339
+    },
+    {
+      "date": "2025-04-28 18:58:28",
+      "close": 1.32999
+    },
+    {
+      "date": "2025-04-29 18:58:28",
+      "close": 1.32961
+    },
+    {
+      "date": "2025-04-30 18:58:28",
+      "close": 1.33225
+    },
+    {
+      "date": "2025-05-01 18:58:28",
+      "close": 1.33003
+    },
+    {
+      "date": "2025-05-02 18:58:28",
+      "close": 1.32929
+    },
+    {
+      "date": "2025-05-03 18:58:28",
+      "close": 1.3289
+    },
+    {
+      "date": "2025-05-04 18:58:28",
+      "close": 1.32859
+    },
+    {
+      "date": "2025-05-05 18:58:28",
+      "close": 1.33401
+    },
+    {
+      "date": "2025-05-06 18:58:28",
+      "close": 1.33696
+    },
+    {
+      "date": "2025-05-07 18:58:28",
+      "close": 1.33297
+    },
+    {
+      "date": "2025-05-08 18:58:28",
+      "close": 1.3352
+    },
+    {
+      "date": "2025-05-09 18:58:28",
+      "close": 1.33513
+    },
+    {
+      "date": "2025-05-10 18:58:28",
+      "close": 1.33787
+    }
+  ],
+  "ai_analysis": {
+    "trend": "neutral",
+    "strength": 60,
+    "recommendation": "hold",
+    "confidence": 80,
+    "reasoning": "The RSI is oversold, indicating a potential bounce, but the MACD is bearish, suggesting a lack of momentum. The price is trading near the middle of the Bollinger Bands, indicating a neutral market.",
+    "key_factors": [
+      "USDCAD interest rate differential",
+      "Canadian economic data releases"
+    ],
+    "risk_assessment": "The risk is moderate, as the market is near a key support level, but the lack of clear momentum increases the risk of a false breakout.",
+    "timeframe": "short_term"
+  }
+}

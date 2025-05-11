@@ -1,0 +1,155 @@
+{
+  "currency_pair": "GBPUSD",
+  "timeframe": "1d",
+  "timestamp": "2025-05-11 18:58:26",
+  "current_price": 1.28415,
+  "trend": "bearish",
+  "strength": 60.0,
+  "support": 1.27519,
+  "resistance": 1.2998,
+  "recommendation": "sell",
+  "confidence": 80.0,
+  "indicators": {
+    "rsi": 45.16,
+    "macd": 0.00147,
+    "macd_signal": 0.00206,
+    "sma_20": 1.28755,
+    "upper_band": 1.29631,
+    "lower_band": 1.27879
+  },
+  "historical_data": [
+    {
+      "date": "2025-04-11 18:58:26",
+      "close": 1.29549
+    },
+    {
+      "date": "2025-04-12 18:58:26",
+      "close": 1.29533
+    },
+    {
+      "date": "2025-04-13 18:58:26",
+      "close": 1.29391
+    },
+    {
+      "date": "2025-04-14 18:58:26",
+      "close": 1.29338
+    },
+    {
+      "date": "2025-04-15 18:58:26",
+      "close": 1.28458
+    },
+    {
+      "date": "2025-04-16 18:58:26",
+      "close": 1.28369
+    },
+    {
+      "date": "2025-04-17 18:58:26",
+      "close": 1.28112
+    },
+    {
+      "date": "2025-04-18 18:58:26",
+      "close": 1.2809
+    },
+    {
+      "date": "2025-04-19 18:58:26",
+      "close": 1.27896
+    },
+    {
+      "date": "2025-04-20 18:58:26",
+      "close": 1.28241
+    },
+    {
+      "date": "2025-04-21 18:58:26",
+      "close": 1.2838
+    },
+    {
+      "date": "2025-04-22 18:58:26",
+      "close": 1.27978
+    },
+    {
+      "date": "2025-04-23 18:58:26",
+      "close": 1.28146
+    },
+    {
+      "date": "2025-04-24 18:58:26",
+      "close": 1.28984
+    },
+    {
+      "date": "2025-04-25 18:58:26",
+      "close": 1.28682
+    },
+    {
+      "date": "2025-04-26 18:58:26",
+      "close": 1.28876
+    },
+    {
+      "date": "2025-04-27 18:58:26",
+      "close": 1.28677
+    },
+    {
+      "date": "2025-04-28 18:58:26",
+      "close": 1.28518
+    },
+    {
+      "date": "2025-04-29 18:58:26",
+      "close": 1.28357
+    },
+    {
+      "date": "2025-04-30 18:58:26",
+      "close": 1.28781
+    },
+    {
+      "date": "2025-05-01 18:58:26",
+      "close": 1.28874
+    },
+    {
+      "date": "2025-05-02 18:58:26",
+      "close": 1.29537
+    },
+    {
+      "date": "2025-05-03 18:58:26",
+      "close": 1.29398
+    },
+    {
+      "date": "2025-05-04 18:58:26",
+      "close": 1.29421
+    },
+    {
+      "date": "2025-05-05 18:58:26",
+      "close": 1.28201
+    },
+    {
+      "date": "2025-05-06 18:58:26",
+      "close": 1.28695
+    },
+    {
+      "date": "2025-05-07 18:58:26",
+      "close": 1.29149
+    },
+    {
+      "date": "2025-05-08 18:58:26",
+      "close": 1.2915
+    },
+    {
+      "date": "2025-05-09 18:58:26",
+      "close": 1.28878
+    },
+    {
+      "date": "2025-05-10 18:58:26",
+      "close": 1.28415
+    }
+  ],
+  "ai_analysis": {
+    "trend": "bearish",
+    "strength": 60,
+    "recommendation": "sell",
+    "confidence": 80,
+    "reasoning": "The RSI is oversold, indicating a potential reversal. The MACD is also bearish, and the price is trading below the SMA 20. The Bollinger Bands are contracting, which may indicate a potential breakout. However, the resistance level at 1.2998 is strong, and the support level at 1.27519 is relatively close, making it a good entry point for a short trade.",
+    "key_factors": [
+      "oversold RSI",
+      "bearish MACD"
+    ],
+    "risk_assessment": "The risk is moderate, as the trade is based on a potential reversal, but the stop-loss should be set above the resistance level to limit potential losses.",
+    "timeframe": "short_term"
+  }
+}

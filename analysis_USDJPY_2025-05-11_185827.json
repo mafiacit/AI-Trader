@@ -1,0 +1,155 @@
+{
+  "currency_pair": "USDJPY",
+  "timeframe": "1d",
+  "timestamp": "2025-05-11 18:58:27",
+  "current_price": 723.21353,
+  "trend": "bullish",
+  "strength": 65.1451641970791,
+  "support": 257.81507,
+  "resistance": 827.35645,
+  "recommendation": "buy",
+  "confidence": 80.0,
+  "indicators": {
+    "rsi": 51.51,
+    "macd": 90.85768,
+    "macd_signal": 71.84687,
+    "sma_20": 507.23556,
+    "upper_band": 803.1582,
+    "lower_band": 211.31292
+  },
+  "historical_data": [
+    {
+      "date": "2025-04-11 18:58:27",
+      "close": 182.06501
+    },
+    {
+      "date": "2025-04-12 18:58:27",
+      "close": 222.02517
+    },
+    {
+      "date": "2025-04-13 18:58:27",
+      "close": 278.70931
+    },
+    {
+      "date": "2025-04-14 18:58:27",
+      "close": 322.61445
+    },
+    {
+      "date": "2025-04-15 18:58:27",
+      "close": 350.04658
+    },
+    {
+      "date": "2025-04-16 18:58:27",
+      "close": 439.74408
+    },
+    {
+      "date": "2025-04-17 18:58:27",
+      "close": 410.06261
+    },
+    {
+      "date": "2025-04-18 18:58:27",
+      "close": 201.87458
+    },
+    {
+      "date": "2025-04-19 18:58:27",
+      "close": 256.35045
+    },
+    {
+      "date": "2025-04-20 18:58:27",
+      "close": 239.96118
+    },
+    {
+      "date": "2025-04-21 18:58:27",
+      "close": 279.34166
+    },
+    {
+      "date": "2025-04-22 18:58:27",
+      "close": 337.47877
+    },
+    {
+      "date": "2025-04-23 18:58:27",
+      "close": 353.30565
+    },
+    {
+      "date": "2025-04-24 18:58:27",
+      "close": 416.05271
+    },
+    {
+      "date": "2025-04-25 18:58:27",
+      "close": 508.91393
+    },
+    {
+      "date": "2025-04-26 18:58:27",
+      "close": 685.75629
+    },
+    {
+      "date": "2025-04-27 18:58:27",
+      "close": 421.40608
+    },
+    {
+      "date": "2025-04-28 18:58:27",
+      "close": 388.85476
+    },
+    {
+      "date": "2025-04-29 18:58:27",
+      "close": 365.014
+    },
+    {
+      "date": "2025-04-30 18:58:27",
+      "close": 368.53843
+    },
+    {
+      "date": "2025-05-01 18:58:27",
+      "close": 426.19654
+    },
+    {
+      "date": "2025-05-02 18:58:27",
+      "close": 477.75811
+    },
+    {
+      "date": "2025-05-03 18:58:27",
+      "close": 575.18762
+    },
+    {
+      "date": "2025-05-04 18:58:27",
+      "close": 514.83289
+    },
+    {
+      "date": "2025-05-05 18:58:27",
+      "close": 573.92018
+    },
+    {
+      "date": "2025-05-06 18:58:27",
+      "close": 805.56944
+    },
+    {
+      "date": "2025-05-07 18:58:27",
+      "close": 675.7123
+    },
+    {
+      "date": "2025-05-08 18:58:27",
+      "close": 660.5668
+    },
+    {
+      "date": "2025-05-09 18:58:27",
+      "close": 587.09145
+    },
+    {
+      "date": "2025-05-10 18:58:27",
+      "close": 723.21353
+    }
+  ],
+  "ai_analysis": {
+    "trend": "bullish",
+    "strength": 60,
+    "recommendation": "buy",
+    "confidence": 80,
+    "reasoning": "The RSI is oversold, indicating a potential reversal. The MACD is also showing a bullish divergence. The current price is above the SMA 20, and the Bollinger Bands are expanding, indicating increased volatility. The support level is far away, and the resistance level is above the current price, providing a clear path for further upside.",
+    "key_factors": [
+      "interest rate differentials",
+      "economic data releases"
+    ],
+    "risk_assessment": "The risk is moderate due to the potential for a pullback to the SMA 20. However, the bullish trend is strong, and a stop-loss can be placed below the SMA 20 to limit potential losses.",
+    "timeframe": "short_term"
+  }
+}

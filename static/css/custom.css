@@ -1,0 +1,147 @@
+/* Additional custom styles for the trading bot */
+
+/* Dashboard layout */
+.dashboard-card {
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    height: 100%;
+}
+
+.dashboard-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Chart container styling */
+.chart-container {
+    height: 350px;
+    position: relative;
+}
+
+/* Trading panel */
+.trading-panel {
+    background-color: var(--bs-dark);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+/* Analysis card */
+.analysis-card {
+    border-left: 5px solid;
+    transition: all 0.3s;
+}
+
+.analysis-card.bullish {
+    border-left-color: var(--bs-success);
+}
+
+.analysis-card.bearish {
+    border-left-color: var(--bs-danger);
+}
+
+.analysis-card.neutral {
+    border-left-color: var(--bs-warning);
+}
+
+/* Indicator badges */
+.indicator-badge {
+    font-size: 0.85rem;
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+
+/* Action buttons */
+.action-btn {
+    min-width: 100px;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: all 0.2s;
+    margin: 5px;
+}
+
+.action-btn:hover {
+    transform: scale(1.05);
+}
+
+/* Recommendation highlight */
+.recommendation {
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+.recommendation.buy {
+    background-color: rgba(25, 135, 84, 0.2);
+    color: #5cb85c;
+}
+
+.recommendation.sell {
+    background-color: rgba(220, 53, 69, 0.2);
+    color: #d9534f;
+}
+
+.recommendation.hold {
+    background-color: rgba(255, 193, 7, 0.2);
+    color: #f0ad4e;
+}
+
+/* Trade history table */
+.trade-history-table th,
+.trade-history-table td {
+    padding: 10px;
+    vertical-align: middle;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #343a40;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #495057;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #6c757d;
+}
+
+/* Progress bars */
+.progress {
+    height: 8px;
+    margin-bottom: 10px;
+}
+
+/* Price movement indicators */
+.price-movement-up {
+    color: var(--bs-success);
+}
+
+.price-movement-down {
+    color: var(--bs-danger);
+}
+
+/* Animation for loading states */
+@keyframes pulse {
+    0% {
+        opacity: 0.6;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.6;
+    }
+}
+
+.loading {
+    animation: pulse 1.5s infinite;
+}

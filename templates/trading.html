@@ -1,0 +1,393 @@
+{% extends 'layout.html' %}
+
+{% block title %}Trading{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col-md-8">
+        <div class="card bg-dark dashboard-card">
+            <div class="card-header">
+                <h3 class="mb-0">
+                    <i class="fas fa-exchange-alt me-2"></i>Trading Dashboard
+                </h3>
+            </div>
+            <div class="card-body">
+                <div class="chart-container mb-4">
+                    <canvas id="marketChart" data-currency="EURUSD" data-timeframe="1d"></canvas>
+                </div>
+                
+                <div class="trading-panel">
+                    <h4 class="mb-4">Execute Trade</h4>
+                    <form id="tradeForm" action="/trading" method="post">
+                        <div class="row g-3 mb-4">
+                            <div class="col-md-4">
+                                <label for="currencyPair" class="form-label">Currency Pair</label>
+                                <select name="currency_pair" id="currencyPair" class="form-select">
+                                    <option value="EURUSD" selected>EUR/USD</option>
+                                    <option value="GBPUSD">GBP/USD</option>
+                                    <option value="USDJPY">USD/JPY</option>
+                                    <option value="USDCHF">USD/CHF</option>
+                                    <option value="AUDUSD">AUD/USD</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="tradeAmount" class="form-label">Amount</label>
+                                <input type="number" class="form-control" id="tradeAmount" name="amount" value="1000" min="100" step="100">
+                            </div>
+                            <div class="col-md-4">
+                                <label for="tradeType" class="form-label">Leverage</label>
+                                <select class="form-select" id="tradeLeverage">
+                                    <option value="1">1:1</option>
+                                    <option value="5">1:5</option>
+                                    <option value="10" selected>1:10</option>
+                                    <option value="20">1:20</option>
+                                    <option value="50">1:50</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-12 text-center">
+                                <button type="button" id="buyButton" class="btn btn-success btn-lg action-btn">
+                                    <i class="fas fa-arrow-up me-2"></i>Buy
+                                </button>
+                                <button type="button" id="sellButton" class="btn btn-danger btn-lg action-btn">
+                                    <i class="fas fa-arrow-down me-2"></i>Sell
+                                </button>
+                                <button type="button" id="autoTradeButton" class="btn btn-primary btn-lg action-btn">
+                                    <i class="fas fa-robot me-2"></i>AI Trade
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                
+                <div id="tradeResults" class="mt-4">
+                    {% if result %}
+                    <div class="alert alert-success">
+                        <h5 class="alert-heading">Trade Executed Successfully!</h5>
+                        <p>Trade ID: {{ result.trade_id }}</p>
+                        <p>Type: {{ result.type|capitalize }}</p>
+                        <p>Currency Pair: {{ result.currency_pair }}</p>
+                        <p>Amount: {{ result.amount }}</p>
+                        <p>Price: {{ result.price }}</p>
+                        <p>Timestamp: {{ result.timestamp }}</p>
+                    </div>
+                    {% endif %}
+                    
+                    {% if error %}
+                    <div class="alert alert-danger">
+                        <h5 class="alert-heading">Trade Execution Failed</h5>
+                        <p>{{ error }}</p>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-4">
+        <div class="card bg-dark dashboard-card mb-4">
+            <div class="card-header">
+                <h4 class="mb-0">Market Overview</h4>
+            </div>
+            <div class="card-body">
+                <div class="d-flex justify-content-between mb-3">
+                    <span>EUR/USD</span>
+                    <span class="fw-bold price-movement-up">1.1053 <i class="fas fa-caret-up"></i></span>
+                </div>
+                <div class="d-flex justify-content-between mb-3">
+                    <span>GBP/USD</span>
+                    <span class="fw-bold price-movement-down">1.2534 <i class="fas fa-caret-down"></i></span>
+                </div>
+                <div class="d-flex justify-content-between mb-3">
+                    <span>USD/JPY</span>
+                    <span class="fw-bold price-movement-up">150.25 <i class="fas fa-caret-up"></i></span>
+                </div>
+                <div class="d-flex justify-content-between mb-3">
+                    <span>USD/CHF</span>
+                    <span class="fw-bold price-movement-down">0.9045 <i class="fas fa-caret-down"></i></span>
+                </div>
+                <div class="d-flex justify-content-between mb-3">
+                    <span>AUD/USD</span>
+                    <span class="fw-bold price-movement-up">0.6578 <i class="fas fa-caret-up"></i></span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card bg-dark dashboard-card">
+            <div class="card-header">
+                <h4 class="mb-0">AI Recommendations</h4>
+            </div>
+            <div class="card-body">
+                <div class="card bg-dark mb-3 analysis-card bullish">
+                    <div class="card-body">
+                        <h5 class="card-title">EUR/USD</h5>
+                        <div class="d-flex justify-content-between">
+                            <span class="text-muted">Recommendation:</span>
+                            <span class="recommendation buy">Buy</span>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <span class="text-muted">Confidence:</span>
+                            <span class="fw-bold">85%</span>
+                        </div>
+                        <a href="/analyze/EURUSD" class="btn btn-sm btn-outline-primary mt-2">View Analysis</a>
+                    </div>
+                </div>
+                
+                <div class="card bg-dark mb-3 analysis-card bearish">
+                    <div class="card-body">
+                        <h5 class="card-title">GBP/USD</h5>
+                        <div class="d-flex justify-content-between">
+                            <span class="text-muted">Recommendation:</span>
+                            <span class="recommendation sell">Sell</span>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <span class="text-muted">Confidence:</span>
+                            <span class="fw-bold">78%</span>
+                        </div>
+                        <a href="/analyze/GBPUSD" class="btn btn-sm btn-outline-primary mt-2">View Analysis</a>
+                    </div>
+                </div>
+                
+                <div class="card bg-dark analysis-card neutral">
+                    <div class="card-body">
+                        <h5 class="card-title">USD/JPY</h5>
+                        <div class="d-flex justify-content-between">
+                            <span class="text-muted">Recommendation:</span>
+                            <span class="recommendation hold">Hold</span>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <span class="text-muted">Confidence:</span>
+                            <span class="fw-bold">62%</span>
+                        </div>
+                        <a href="/analyze/USDJPY" class="btn btn-sm btn-outline-primary mt-2">View Analysis</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mb-4">
+    <div class="col-md-12">
+        <div class="card bg-dark dashboard-card">
+            <div class="card-header">
+                <h4 class="mb-0">AI-Powered Risk Analysis</h4>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <form id="riskAnalysisForm">
+                            <div class="mb-3">
+                                <label for="riskCurrencyPair" class="form-label">Currency Pair</label>
+                                <select id="riskCurrencyPair" class="form-select">
+                                    <option value="EURUSD" selected>EUR/USD</option>
+                                    <option value="GBPUSD">GBP/USD</option>
+                                    <option value="USDJPY">USD/JPY</option>
+                                    <option value="AUDUSD">AUD/USD</option>
+                                    <option value="USDCAD">USD/CAD</option>
+                                    <option value="XAUUSD">XAU/USD (Gold)</option>
+                                    <option value="BTCUSD">BTC/USD (Bitcoin)</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="riskTradeType" class="form-label">Trade Type</label>
+                                <select id="riskTradeType" class="form-select">
+                                    <option value="buy" selected>Buy</option>
+                                    <option value="sell">Sell</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="riskAmount" class="form-label">Trade Amount ($)</label>
+                                <input type="number" id="riskAmount" class="form-control" value="1000" min="100" step="100">
+                            </div>
+                            <div class="mb-3">
+                                <label for="riskLeverage" class="form-label">Leverage</label>
+                                <select id="riskLeverage" class="form-select">
+                                    <option value="1">1:1</option>
+                                    <option value="5">1:5</option>
+                                    <option value="10" selected>1:10</option>
+                                    <option value="20">1:20</option>
+                                    <option value="50">1:50</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="riskStopLoss" class="form-label">Stop Loss (optional)</label>
+                                <input type="number" id="riskStopLoss" class="form-control" step="0.0001" placeholder="Enter stop loss price">
+                            </div>
+                            <div class="mb-3">
+                                <label for="riskTakeProfit" class="form-label">Take Profit (optional)</label>
+                                <input type="number" id="riskTakeProfit" class="form-control" step="0.0001" placeholder="Enter take profit price">
+                            </div>
+                            <div class="mb-3 form-check">
+                                <input type="checkbox" id="includePortfolio" class="form-check-input">
+                                <label class="form-check-label" for="includePortfolio">Include portfolio analysis</label>
+                            </div>
+                            <button type="button" id="analyzeRiskButton" class="btn btn-primary">
+                                <i class="fas fa-chart-line me-2"></i>Analyze Risk
+                            </button>
+                        </form>
+                    </div>
+                    <div class="col-md-6">
+                        <div id="riskAnalysisResults" class="d-none">
+                            <div class="card bg-dark mb-3">
+                                <div class="card-body">
+                                    <h5 class="card-title mb-3">Risk Assessment Summary</h5>
+                                    <div class="d-flex justify-content-between mb-2">
+                                        <span class="text-muted">Risk Level:</span>
+                                        <span id="riskLevel" class="fw-bold"></span>
+                                    </div>
+                                    <div class="mb-2">
+                                        <div class="d-flex justify-content-between">
+                                            <span class="text-muted">Risk Score:</span>
+                                            <span id="riskScore" class="fw-bold"></span>
+                                        </div>
+                                        <div class="progress">
+                                            <div id="riskScoreBar" class="progress-bar" role="progressbar" style="width: 0%"></div>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex justify-content-between mb-2">
+                                        <span class="text-muted">Maximum Drawdown:</span>
+                                        <span id="maxDrawdown" class="fw-bold"></span>
+                                    </div>
+                                    <div class="d-flex justify-content-between mb-2">
+                                        <span class="text-muted">Potential Loss:</span>
+                                        <span id="maxLoss" class="fw-bold"></span>
+                                    </div>
+                                    <div class="d-flex justify-content-between mb-2">
+                                        <span class="text-muted">Risk-Reward Ratio:</span>
+                                        <span id="riskReward" class="fw-bold"></span>
+                                    </div>
+                                    <div class="d-flex justify-content-between mb-2">
+                                        <span class="text-muted">Position Sizing:</span>
+                                        <span id="positionSizing" class="fw-bold"></span>
+                                    </div>
+                                    <div class="d-flex justify-content-between mb-2">
+                                        <span class="text-muted">Leverage Recommendation:</span>
+                                        <span id="leverageRecommendation" class="fw-bold"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="card bg-dark">
+                                <div class="card-body">
+                                    <h5 class="card-title mb-3">Risk Factors</h5>
+                                    <ul id="riskFactorsList" class="list-group list-group-flush bg-dark">
+                                        <!-- Risk factors will be populated here -->
+                                    </ul>
+                                    
+                                    <h5 class="card-title mt-4 mb-3">Protective Measures</h5>
+                                    <ul id="protectiveMeasuresList" class="list-group list-group-flush bg-dark">
+                                        <!-- Protective measures will be populated here -->
+                                    </ul>
+                                    
+                                    <div class="mt-4">
+                                        <h5 class="card-title mb-2">Overall Assessment</h5>
+                                        <p id="overallAssessment" class="mb-0"></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div id="riskAnalysisLoading" class="text-center d-none">
+                            <div class="spinner-border text-primary" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                            <p class="mt-2">Analyzing trade risk with AI...</p>
+                        </div>
+                        
+                        <div id="riskAnalysisError" class="alert alert-danger d-none">
+                            <h5 class="alert-heading">Analysis Failed</h5>
+                            <p id="riskAnalysisErrorMessage"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card bg-dark dashboard-card">
+            <div class="card-header">
+                <h4 class="mb-0">Trade History</h4>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-dark table-hover trade-history-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Currency</th>
+                                <th>Type</th>
+                                <th>Amount</th>
+                                <th>Price</th>
+                                <th>Timestamp</th>
+                                <th>Status</th>
+                                <th>P/L</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>EUR/USD</td>
+                                <td><span class="badge bg-success">Buy</span></td>
+                                <td>1,000</td>
+                                <td>1.1032</td>
+                                <td>2023-05-11 10:22:35</td>
+                                <td><span class="badge bg-primary">Open</span></td>
+                                <td class="text-success">+21.00</td>
+                                <td>
+                                    <button class="btn btn-sm btn-outline-danger">Close</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>GBP/USD</td>
+                                <td><span class="badge bg-danger">Sell</span></td>
+                                <td>500</td>
+                                <td>1.2556</td>
+                                <td>2023-05-11 11:45:18</td>
+                                <td><span class="badge bg-primary">Open</span></td>
+                                <td class="text-success">+11.00</td>
+                                <td>
+                                    <button class="btn btn-sm btn-outline-danger">Close</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>USD/JPY</td>
+                                <td><span class="badge bg-success">Buy</span></td>
+                                <td>2,000</td>
+                                <td>149.87</td>
+                                <td>2023-05-10 15:32:47</td>
+                                <td><span class="badge bg-success">Closed</span></td>
+                                <td class="text-success">+76.00</td>
+                                <td>
+                                    <button class="btn btn-sm btn-outline-secondary" disabled>Closed</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>EUR/USD</td>
+                                <td><span class="badge bg-danger">Sell</span></td>
+                                <td>1,500</td>
+                                <td>1.1067</td>
+                                <td>2023-05-10 09:15:23</td>
+                                <td><span class="badge bg-success">Closed</span></td>
+                                <td class="text-danger">-21.00</td>
+                                <td>
+                                    <button class="btn btn-sm btn-outline-secondary" disabled>Closed</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

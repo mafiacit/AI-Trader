@@ -1,0 +1,206 @@
+{% extends 'layout.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col-md-12">
+        <div class="card bg-dark dashboard-card">
+            <div class="card-body">
+                <h1 class="mb-4 text-center">
+                    <i class="fas fa-robot me-2"></i>AI-Powered Trading Bot
+                </h1>
+                <p class="lead text-center">
+                    Welcome to your advanced trading platform with AI-powered market analysis and automated trading capabilities.
+                </p>
+                
+                {% if bot_status and bot_status.telegram_connected %}
+                <div class="alert alert-success text-center">
+                    <i class="fab fa-telegram me-2"></i> <strong>Telegram Bot Active!</strong> Search for your bot in Telegram and start trading with the command <code>/start</code>
+                </div>
+                {% endif %}
+                
+                <div class="text-center mt-4">
+                    <a href="/analyze/EURUSD" class="btn btn-primary btn-lg action-btn me-2">
+                        <i class="fas fa-chart-line me-2"></i>Analyze Market
+                    </a>
+                    <a href="/trading" class="btn btn-success btn-lg action-btn">
+                        <i class="fas fa-exchange-alt me-2"></i>Start Trading
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mb-4">
+    <div class="col-md-4">
+        <div class="card bg-dark dashboard-card">
+            <div class="card-body">
+                <h5 class="card-title">
+                    <i class="fas fa-brain me-2"></i>AI-Powered Analysis
+                </h5>
+                <p class="card-text">
+                    Our advanced algorithms analyze market trends, technical indicators, and historical data to provide accurate predictions and trading recommendations.
+                </p>
+                <a href="/analyze" class="btn btn-outline-primary">Learn More</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card bg-dark dashboard-card">
+            <div class="card-body">
+                <h5 class="card-title">
+                    <i class="fas fa-exchange-alt me-2"></i>Automated Trading
+                </h5>
+                <p class="card-text">
+                    Execute trades automatically based on AI analysis or manually with our intuitive interface. Set parameters and let the bot handle the rest.
+                </p>
+                <a href="/trading" class="btn btn-outline-primary">Start Trading</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card bg-dark dashboard-card">
+            <div class="card-body">
+                <h5 class="card-title">
+                    <i class="fas fa-chart-bar me-2"></i>Market Insights
+                </h5>
+                <p class="card-text">
+                    Get real-time market data, visualizations, and detailed reports on currency pairs. Monitor trends and make informed decisions.
+                </p>
+                <a href="/analyze/EURUSD" class="btn btn-outline-primary">View Insights</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card bg-dark dashboard-card">
+            <div class="card-body">
+                <h3 class="card-title mb-4">
+                    <i class="fas fa-bolt me-2"></i>Quick Analysis
+                </h3>
+                <div class="row">
+                    <div class="col-md-6 offset-md-3">
+                        <form action="/analyze" method="post" class="mb-4">
+                            <div class="input-group mb-3">
+                                <select name="currency_pair" class="form-select" id="quickAnalyzePair">
+                                    <option value="EURUSD" selected>EUR/USD</option>
+                                    <option value="GBPUSD">GBP/USD</option>
+                                    <option value="USDJPY">USD/JPY</option>
+                                    <option value="USDCHF">USD/CHF</option>
+                                    <option value="AUDUSD">AUD/USD</option>
+                                </select>
+                                <select name="timeframe" class="form-select">
+                                    <option value="1h">1 Hour</option>
+                                    <option value="4h">4 Hours</option>
+                                    <option value="1d" selected>1 Day</option>
+                                </select>
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fas fa-search me-2"></i>Analyze
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card bg-dark mb-4 analysis-card {% if bot_status and bot_status.eurusd_trend == 'bullish' %}bullish{% elif bot_status and bot_status.eurusd_trend == 'bearish' %}bearish{% else %}neutral{% endif %}">
+                            <div class="card-body">
+                                <h5 class="card-title">EUR/USD</h5>
+                                <div class="d-flex justify-content-between">
+                                    <span class="text-muted">Current:</span>
+                                    <span class="fw-bold">{{ bot_status.current_price.EURUSD if bot_status else '1.1053' }}</span>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <span class="text-muted">Trend:</span>
+                                    <span class="fw-bold {% if bot_status and bot_status.eurusd_trend == 'bullish' %}text-success{% elif bot_status and bot_status.eurusd_trend == 'bearish' %}text-danger{% else %}text-warning{% endif %}">
+                                        {{ bot_status.eurusd_trend.capitalize() if bot_status else 'Neutral' }}
+                                    </span>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <span class="text-muted">Recommendation:</span>
+                                    <span class="recommendation {{ bot_status.eurusd_recommendation if bot_status else 'hold' }}">
+                                        {{ bot_status.eurusd_recommendation.capitalize() if bot_status else 'Hold' }}
+                                    </span>
+                                </div>
+                                <div class="d-flex justify-content-between mt-3">
+                                    <a href="/analyze/EURUSD" class="btn btn-sm btn-outline-primary">View Analysis</a>
+                                    <a href="/trading" class="btn btn-sm btn-outline-success">Trade Now</a>
+                                </div>
+                                {% if bot_status and bot_status.telegram_connected %}
+                                <div class="text-center mt-2">
+                                    <small class="text-muted">Or use Telegram command:</small>
+                                    <code>/analyze EURUSD</code>
+                                </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark mb-4 analysis-card bearish">
+                            <div class="card-body">
+                                <h5 class="card-title">GBP/USD</h5>
+                                <div class="d-flex justify-content-between">
+                                    <span class="text-muted">Current:</span>
+                                    <span class="fw-bold">{{ bot_status.current_price.GBPUSD if bot_status else '1.2534' }}</span>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <span class="text-muted">Trend:</span>
+                                    <span class="fw-bold text-danger">Bearish</span>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <span class="text-muted">Recommendation:</span>
+                                    <span class="recommendation sell">Sell</span>
+                                </div>
+                                <div class="d-flex justify-content-between mt-3">
+                                    <a href="/analyze/GBPUSD" class="btn btn-sm btn-outline-primary">View Analysis</a>
+                                    <a href="/trading" class="btn btn-sm btn-outline-success">Trade Now</a>
+                                </div>
+                                {% if bot_status and bot_status.telegram_connected %}
+                                <div class="text-center mt-2">
+                                    <small class="text-muted">Or use Telegram command:</small>
+                                    <code>/analyze GBPUSD</code>
+                                </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark mb-4 analysis-card neutral">
+                            <div class="card-body">
+                                <h5 class="card-title">USD/JPY</h5>
+                                <div class="d-flex justify-content-between">
+                                    <span class="text-muted">Current:</span>
+                                    <span class="fw-bold">{{ bot_status.current_price.USDJPY if bot_status else '150.25' }}</span>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <span class="text-muted">Trend:</span>
+                                    <span class="fw-bold text-warning">Neutral</span>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <span class="text-muted">Recommendation:</span>
+                                    <span class="recommendation hold">Hold</span>
+                                </div>
+                                <div class="d-flex justify-content-between mt-3">
+                                    <a href="/analyze/USDJPY" class="btn btn-sm btn-outline-primary">View Analysis</a>
+                                    <a href="/trading" class="btn btn-sm btn-outline-success">Trade Now</a>
+                                </div>
+                                {% if bot_status and bot_status.telegram_connected %}
+                                <div class="text-center mt-2">
+                                    <small class="text-muted">Or use Telegram command:</small>
+                                    <code>/analyze USDJPY</code>
+                                </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

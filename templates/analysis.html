@@ -1,0 +1,250 @@
+{% extends 'layout.html' %}
+
+{% block title %}Market Analysis{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col-md-12">
+        <div class="card bg-dark dashboard-card">
+            <div class="card-header">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h3 class="mb-0">
+                        <i class="fas fa-chart-line me-2"></i>Market Analysis
+                    </h3>
+                    <div>
+                        <form id="analysisForm" action="/analyze" method="post" class="row g-3 align-items-center">
+                            <div class="col-auto">
+                                <select name="currency_pair" id="currencyPair" class="form-select">
+                                    <option value="EURUSD" {% if currency_pair == 'EURUSD' %}selected{% endif %}>EUR/USD</option>
+                                    <option value="GBPUSD" {% if currency_pair == 'GBPUSD' %}selected{% endif %}>GBP/USD</option>
+                                    <option value="USDJPY" {% if currency_pair == 'USDJPY' %}selected{% endif %}>USD/JPY</option>
+                                    <option value="USDCHF" {% if currency_pair == 'USDCHF' %}selected{% endif %}>USD/CHF</option>
+                                    <option value="AUDUSD" {% if currency_pair == 'AUDUSD' %}selected{% endif %}>AUD/USD</option>
+                                </select>
+                            </div>
+                            <div class="col-auto">
+                                <select name="timeframe" id="timeframeSelector" class="form-select">
+                                    <option value="1h" {% if timeframe == '1h' %}selected{% endif %}>1 Hour</option>
+                                    <option value="4h" {% if timeframe == '4h' %}selected{% endif %}>4 Hours</option>
+                                    <option value="1d" {% if timeframe == '1d' %}selected{% endif %}>1 Day</option>
+                                </select>
+                            </div>
+                            <div class="col-auto">
+                                <button type="submit" id="analyzeButton" class="btn btn-primary">
+                                    <i class="fas fa-search me-2"></i>Analyze
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                {% if error %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+                {% elif analysis %}
+                <div class="row mb-4">
+                    <div class="col-lg-8">
+                        <div class="chart-container">
+                            <canvas id="marketChart" data-currency="{{ currency_pair }}" data-timeframe="{{ timeframe }}"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="card bg-dark h-100 analysis-card {{ analysis.trend }}">
+                            <div class="card-body">
+                                <h4 class="card-title">{{ currency_pair }} Analysis</h4>
+                                <p class="text-muted">As of {{ analysis.timestamp }}</p>
+                                
+                                <div class="d-flex justify-content-between mb-2">
+                                    <span class="text-muted">Current Price:</span>
+                                    <span class="fw-bold">{{ analysis.current_price }}</span>
+                                </div>
+                                
+                                <div class="d-flex justify-content-between mb-2">
+                                    <span class="text-muted">Trend:</span>
+                                    <span class="fw-bold 
+                                        {% if analysis.trend == 'bullish' %}text-success
+                                        {% elif analysis.trend == 'bearish' %}text-danger
+                                        {% else %}text-warning{% endif %}">
+                                        {{ analysis.trend|capitalize }}
+                                    </span>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label class="form-label text-muted mb-1">Strength:</label>
+                                    <div class="progress">
+                                        <div class="progress-bar 
+                                            {% if analysis.trend == 'bullish' %}bg-success
+                                            {% elif analysis.trend == 'bearish' %}bg-danger
+                                            {% else %}bg-warning{% endif %}"
+                                            role="progressbar" 
+                                            style="width: {{ analysis.strength }}%" 
+                                            aria-valuenow="{{ analysis.strength }}" 
+                                            aria-valuemin="0" 
+                                            aria-valuemax="100">
+                                            {{ analysis.strength }}%
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="d-flex justify-content-between mb-2">
+                                    <span class="text-muted">Support:</span>
+                                    <span class="fw-bold">{{ analysis.support }}</span>
+                                </div>
+                                
+                                <div class="d-flex justify-content-between mb-2">
+                                    <span class="text-muted">Resistance:</span>
+                                    <span class="fw-bold">{{ analysis.resistance }}</span>
+                                </div>
+                                
+                                <div class="d-flex justify-content-between mb-3">
+                                    <span class="text-muted">Recommendation:</span>
+                                    <span class="recommendation {{ analysis.recommendation }}">
+                                        {{ analysis.recommendation|capitalize }}
+                                    </span>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label class="form-label text-muted mb-1">Confidence:</label>
+                                    <div class="progress">
+                                        <div class="progress-bar 
+                                            {% if analysis.confidence > 70 %}bg-success
+                                            {% elif analysis.confidence > 40 %}bg-warning
+                                            {% else %}bg-danger{% endif %}"
+                                            role="progressbar" 
+                                            style="width: {{ analysis.confidence }}%" 
+                                            aria-valuenow="{{ analysis.confidence }}" 
+                                            aria-valuemin="0" 
+                                            aria-valuemax="100">
+                                            {{ analysis.confidence }}%
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="mt-4">
+                                    <a href="/trading" class="btn btn-primary w-100">
+                                        <i class="fas fa-exchange-alt me-2"></i>Trade Now
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4 class="mb-3">Technical Indicators</h4>
+                        <div class="row">
+                            <div class="col-md-3 mb-3">
+                                <div class="card bg-dark h-100">
+                                    <div class="card-body">
+                                        <h5 class="card-title">RSI</h5>
+                                        <p class="card-text" data-indicator="rsi">{{ analysis.indicators.rsi }}</p>
+                                        <div class="progress">
+                                            <div class="progress-bar 
+                                                {% if analysis.indicators.rsi > 70 %}bg-danger
+                                                {% elif analysis.indicators.rsi < 30 %}bg-success
+                                                {% else %}bg-warning{% endif %}"
+                                                role="progressbar" 
+                                                style="width: {{ analysis.indicators.rsi }}%" 
+                                                aria-valuenow="{{ analysis.indicators.rsi }}" 
+                                                aria-valuemin="0" 
+                                                aria-valuemax="100">
+                                            </div>
+                                        </div>
+                                        <small class="text-muted">
+                                            {% if analysis.indicators.rsi > 70 %}
+                                                Overbought
+                                            {% elif analysis.indicators.rsi < 30 %}
+                                                Oversold
+                                            {% else %}
+                                                Neutral
+                                            {% endif %}
+                                        </small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <div class="card bg-dark h-100">
+                                    <div class="card-body">
+                                        <h5 class="card-title">MACD</h5>
+                                        <div class="d-flex justify-content-between">
+                                            <span class="text-muted">MACD:</span>
+                                            <span data-indicator="macd">{{ analysis.indicators.macd }}</span>
+                                        </div>
+                                        <div class="d-flex justify-content-between">
+                                            <span class="text-muted">Signal:</span>
+                                            <span data-indicator="macd_signal">{{ analysis.indicators.macd_signal }}</span>
+                                        </div>
+                                        <small class="text-muted">
+                                            {% if analysis.indicators.macd > analysis.indicators.macd_signal %}
+                                                <span class="text-success">Bullish Signal</span>
+                                            {% else %}
+                                                <span class="text-danger">Bearish Signal</span>
+                                            {% endif %}
+                                        </small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <div class="card bg-dark h-100">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Moving Averages</h5>
+                                        <div class="d-flex justify-content-between">
+                                            <span class="text-muted">SMA 20:</span>
+                                            <span data-indicator="sma_20">{{ analysis.indicators.sma_20 }}</span>
+                                        </div>
+                                        <small class="text-muted">
+                                            {% if analysis.current_price > analysis.indicators.sma_20 %}
+                                                <span class="text-success">Price Above MA (Bullish)</span>
+                                            {% else %}
+                                                <span class="text-danger">Price Below MA (Bearish)</span>
+                                            {% endif %}
+                                        </small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <div class="card bg-dark h-100">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Bollinger Bands</h5>
+                                        <div class="d-flex justify-content-between">
+                                            <span class="text-muted">Upper:</span>
+                                            <span data-indicator="upper_band">{{ analysis.indicators.upper_band }}</span>
+                                        </div>
+                                        <div class="d-flex justify-content-between">
+                                            <span class="text-muted">Lower:</span>
+                                            <span data-indicator="lower_band">{{ analysis.indicators.lower_band }}</span>
+                                        </div>
+                                        <small class="text-muted">
+                                            {% if analysis.current_price > analysis.indicators.upper_band %}
+                                                <span class="text-danger">Above Upper Band (Overbought)</span>
+                                            {% elif analysis.current_price < analysis.indicators.lower_band %}
+                                                <span class="text-success">Below Lower Band (Oversold)</span>
+                                            {% else %}
+                                                <span class="text-warning">Within Bands</span>
+                                            {% endif %}
+                                        </small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-4 text-center">
+                    <a href="/trading" class="btn btn-success btn-lg action-btn">
+                        <i class="fas fa-exchange-alt me-2"></i>Execute {{ analysis.recommendation|capitalize }} Trade
+                    </a>
+                </div>
+                {% else %}
+                <div class="alert alert-info" role="alert">
+                    Select a currency pair and timeframe to analyze market data.
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
